@@ -1,11 +1,8 @@
 {
-  "name": "config",
+  "name": "@useless-developers/config",
   "version": "0.0.1",
   "description": "For useless developers, by useless developers.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Useless Developers",
   "license": "GPLV3",
   "type": "module",

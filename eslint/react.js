@@ -10,9 +10,15 @@ import tsdoc from 'eslint-plugin-tsdoc'
 import tsParser from '@typescript-eslint/parser'
 import typescriptSortKeys from 'eslint-plugin-typescript-sort-keys'
 
+/** @type any */
+const badPlugins = {
+  react,
+  'typescript-sort-keys': typescriptSortKeys,
+}
+
 // eslint-disable-next-line tsdoc/syntax, jsdoc/check-tag-names
 /** @type {import('eslint').Linter.FlatConfig[]} */
-export default [
+export const reactConfig = [
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.mjs', '**/*.cjs'],
     languageOptions: {
@@ -33,10 +39,9 @@ export default [
       '@typescript-eslint': ts,
       jsdoc,
       prettier,
-      react,
       'sort-keys-fix': sortKeysFix,
       tsdoc,
-      'typescript-sort-keys': typescriptSortKeys,
+      ...badPlugins
     },
     rules: {
       // Extensions
@@ -47,7 +52,8 @@ export default [
       ...react.configs.recommended.rules,
       ...typescriptSortKeys.configs.recommended.rules,
       ...eslintConfigPrettier.rules,
-
+      
+      // Overrides
       '@typescript-eslint/ban-ts-comment': 0,
       '@typescript-eslint/ban-ts-ignore': 0,
       '@typescript-eslint/ban-types': [
