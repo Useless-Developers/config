@@ -1,2 +1,2 @@
-export * from './eslint'
-export * from './prettier'
+export { reactConfig } from './eslint/react'
+export { prettierConfig } from './prettier/prettier'
