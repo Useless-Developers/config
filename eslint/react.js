@@ -1,12 +1,10 @@
 import js from '@eslint/js'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import globals from 'globals'
-import jsdoc from 'eslint-plugin-jsdoc'
 import prettier from 'eslint-plugin-prettier'
 import react from 'eslint-plugin-react'
 import sortKeysFix from 'eslint-plugin-sort-keys-fix'
 import ts from '@typescript-eslint/eslint-plugin'
-import tsdoc from 'eslint-plugin-tsdoc'
 import tsParser from '@typescript-eslint/parser'
 import typescriptSortKeys from 'eslint-plugin-typescript-sort-keys'
 
@@ -16,7 +14,6 @@ const badPlugins = {
   'typescript-sort-keys': typescriptSortKeys,
 }
 
-// eslint-disable-next-line tsdoc/syntax, jsdoc/check-tag-names
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export const reactConfig = [
   {
@@ -37,10 +34,8 @@ export const reactConfig = [
     },
     plugins: {
       '@typescript-eslint': ts,
-      jsdoc,
       prettier,
       'sort-keys-fix': sortKeysFix,
-      tsdoc,
       ...badPlugins
     },
     rules: {
@@ -48,7 +43,6 @@ export const reactConfig = [
       ...js.configs.recommended.rules,
       ...ts.configs['eslint-recommended'].rules,
       ...ts.configs['recommended'].rules,
-      ...jsdoc.configs['flat/recommended-typescript'].rules,
       ...react.configs.recommended.rules,
       ...typescriptSortKeys.configs.recommended.rules,
       ...eslintConfigPrettier.rules,
@@ -88,19 +82,6 @@ export const reactConfig = [
       'import/namespace': 0,
       'import/no-unresolved': 0,
       indent: 0,
-      'jsdoc/match-description': [
-        2,
-        {
-          mainDescription: '^[A-Z].*',
-          message: 'Please describe the component/method',
-        },
-      ],
-      'jsdoc/require-param': [1, { unnamedRootBase: ['props'] }],
-      'jsdoc/require-param-description': 0,
-      'jsdoc/require-param-type': 0,
-      'jsdoc/require-returns': 0,
-      'jsdoc/require-returns-description': 0,
-      'jsdoc/tag-lines': [1, 'any', { startLines: 1 }],
       'jsx-quotes': [2, 'prefer-single'],
       'lines-between-class-members': 0,
       'new-parens': 2,
@@ -162,7 +143,6 @@ export const reactConfig = [
       semi: [2, 'never'],
       'sort-keys-fix/sort-keys-fix': 1,
       'space-before-function-paren': [1, 'always'],
-      'tsdoc/syntax': 1,
     },
     settings: {
       react: {
