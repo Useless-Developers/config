@@ -1,12 +1,14 @@
 import js from '@eslint/js'
-import eslintConfigPrettier from 'eslint-config-prettier'
-import globals from 'globals'
-import prettier from 'eslint-plugin-prettier'
-import react from 'eslint-plugin-react'
-import sortKeysFix from 'eslint-plugin-sort-keys-fix'
 import ts from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import prettier from 'eslint-plugin-prettier'
+import react from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import sortKeysFix from 'eslint-plugin-sort-keys-fix'
 import typescriptSortKeys from 'eslint-plugin-typescript-sort-keys'
+import globals from 'globals'
 
 /** @type any */
 const badPlugins = {
@@ -35,8 +37,10 @@ export const reactConfig = [
     plugins: {
       '@typescript-eslint': ts,
       prettier,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
       'sort-keys-fix': sortKeysFix,
-      ...badPlugins
+      ...badPlugins,
     },
     rules: {
       // Extensions
@@ -44,9 +48,10 @@ export const reactConfig = [
       ...ts.configs['eslint-recommended'].rules,
       ...ts.configs['recommended'].rules,
       ...react.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
       ...typescriptSortKeys.configs.recommended.rules,
       ...eslintConfigPrettier.rules,
-      
+
       // Overrides
       '@typescript-eslint/ban-ts-comment': 0,
       '@typescript-eslint/ban-ts-ignore': 0,
@@ -124,6 +129,7 @@ export const reactConfig = [
           avoidEscape: true,
         },
       ],
+      'react-refresh/only-export-components': 1,
       'react/jsx-boolean-value': 2,
       'react/jsx-curly-brace-presence': [2, 'never'],
       'react/jsx-first-prop-new-line': [2, 'multiline'],
