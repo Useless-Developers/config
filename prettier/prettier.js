@@ -10,7 +10,7 @@ export const prettierConfig = {
     '^(expo(.*)$)|^(expo$)',
     '<THIRD_PARTY_MODULES>',
     '',
-    '^@acme/(.*)$',
+    '^@/(.*)$',
     '',
     '^~/utils/(.*)$',
     '^~/components/(.*)$',
