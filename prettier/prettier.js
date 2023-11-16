@@ -13,7 +13,6 @@ export const prettierConfig = {
     '<THIRD_PARTY_MODULES>',
     '',
     '^@/(.*)$',
-    '^@(.*)$',
     '',
     '^~/utils/(.*)$',
     '^~/components/(.*)$',
