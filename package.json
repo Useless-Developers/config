@@ -25,7 +25,7 @@
     "eslint-plugin-typescript-sort-keys": ">=3.1",
     "globals": ">=13.23",
     "prettier": ">=3.0",
-    "prettier-plugin-tailwindcss": ">=0.5",
+    "prettier-plugin-tailwindcss": "amritk/prettier-plugin-tailwindcss#dist",
     "typescript": ">=5.2"
   }
 }
