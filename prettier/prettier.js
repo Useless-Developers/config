@@ -25,4 +25,5 @@ export const prettierConfig = {
   importOrderTypeScriptVersion: '5.2.2',
   plugins: ['@ianvs/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
   tailwindConfig: 'tailwind.config.ts',
+  tailwindFunctions: ['cx', 'cva', 'tw'],
 }
